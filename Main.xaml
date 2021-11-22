@@ -1,0 +1,464 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="833,1577" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap2010:Annotation.AnnotationText="Process to scrape SAM.gov for proposals and use ML package to  determine source of contract Feds Department using NamedEntityRecognition out of the box package from UiPath." DisplayName="MasterFlow" sap:VirtualizedContainerService.HintSize="652,1514" sap2010:WorkflowViewState.IdRef="Flowchart_1" ValidateUnconnectedNodes="True">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="transfer_totalRows" />
+      <Variable x:TypeArguments="x:Int32" Name="transfer_currentRow" />
+      <Variable x:TypeArguments="sd:DataTable" Name="transfer_dt_ContractDetail" />
+      <Variable x:TypeArguments="x:String" Name="transfer_ContractDetail" />
+      <Variable x:TypeArguments="x:Boolean" Name="transfer_bool_hasContractDetail" />
+      <Variable x:TypeArguments="x:Double" Name="transfer_confidence" />
+      <Variable x:TypeArguments="x:Double" Default="0.7" Name="ConfidenceThreshold" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">471,0</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <av:PointCollection x:Key="ConnectorLocation">501,75 501,125</av:PointCollection>
+        <x:Double x:Key="Height">1436.5</x:Double>
+        <x:Double x:Key="Width">618</x:Double>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID9</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">401,226</av:Point>
+          <av:Size x:Key="ShapeSize">200,123</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">501,349 501,399</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence sap2010:Annotation.AnnotationText="Extract the Contract  opportunities from SAM.gov and write to a CSV file" DisplayName="Fetch GSA Contracts" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
+          <ui:LogMessage.Message>
+            <InArgument x:TypeArguments="x:Object">
+              <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">"Contract details extract started."</mca:CSharpValue>
+            </InArgument>
+          </ui:LogMessage.Message>
+        </ui:LogMessage>
+        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: SAM.gov | Search" sap:VirtualizedContainerService.HintSize="586,1284" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="71b1fec2-0be9-4aec-bec8-1295e3e0583f" Version="V1">
+          <uix:NApplicationCard.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,1068" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="sd:DataTable" Name="ContractURLDataTable">
+                    <Variable.Default>
+                      <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">new System.Data.DataTable();</mca:CSharpValue>
+                    </Variable.Default>
+                  </Variable>
+                  <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable">
+                    <Variable.Default>
+                      <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">new System.Data.DataTable();</mca:CSharpValue>
+                    </Variable.Default>
+                  </Variable>
+                  <Variable x:TypeArguments="sd:DataTable" Name="ContractDetailsDataTable" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NExtractData AppendResults="False" ContinueOnError="True" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='ContractURL'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='href'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='app-opportunity-result' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h3' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" ExtractSimilar="True" sap:VirtualizedContainerService.HintSize="510,156" sap2010:WorkflowViewState.IdRef="NExtractData_7" LimitExtractionTo="Rows" MaximumResults="8" ScopeIdentifier="71b1fec2-0be9-4aec-bec8-1295e3e0583f" Version="V1">
+                  <uix:NExtractData.DataTable>
+                    <InOutArgument x:TypeArguments="sd:DataTable">
+                      <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">ContractURLDataTable</mca:CSharpReference>
+                    </InOutArgument>
+                  </uix:NExtractData.DataTable>
+                  <uix:NExtractData.NextLink>
+                    <uix:TargetAnchorable BrowserURL="https://sam.gov/search/?index=opp&amp;sort=-relevance&amp;page=1&amp;pageSize=25&amp;sfm%5Bstatus%5D%5Bis_active%5D=true&amp;sfm%5Bdates%5D%5BresponseDue%5D%5BresponseDueSelect%5D=next3Months&amp;sfm%5BserviceClassificationWrapper%5D%5Bnaics%5D%5B0%5D%5Bkey%5D=5415&amp;sfm%5BserviceClassificationWrapper%5D%5Bnaics%5D%5B0%5D%5Bvalue%5D=5415%20-%20Computer%20Systems%20Design%20and%20Related%20Services" DesignTimeRectangle="724, 527, 40, 40" ElementType="Button" FriendlyName="'Next Page'" FullSelectorArgument="&lt;webctrl id='bottomPagination-nextPage' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bottomPagination-nextPage' tag='BUTTON' type='' aaname='Next Page' check:text='Next Page' /&gt;" Guid="90d2f2b8-2a59-49c2-b39b-e877b1362e43" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIaSURBVFhH5Zg7TsQwFEVZB/tgASwDGrZAgURDxQKoEQUtEmIDtNQsgpaKmYH5z8T4AI6czEvicZ4nE3GlK0Wx43fiPH/iA9Mz/T/gzHqxysxksTZf85UZTZfmY/JrrrlHGXWo21ZRwJmNPLUQQw8u1LwEz9JGjLYCJgi9JYHEmLa2BQ8C1gYt+wf8L1aTGoEzSzu2eSgF0jQxiNWkWuC1bWA0kwOkMLGIWadKYN52l7DOxKzr6UrgccKcbTKxqyQCz5fdwTrDIGkDmBySGujCUj5vAHeZCmUz3ZVVAF6t96d3ncu9XADWmG/f3ofi/ViXB2ABOGZv4Pv26cUcnVyrQsPkKwe22SA+sK3Pru7VoWFzyoGnilOZNjRsTjkw+1apcqw1oWFzyoFHM/0Njhb0p2VzyoHbDrgqa0D7Ay8Hlipq+fTyzhwen4tloXZKDkzP0sMXN49ieaidkqaEg2V+lspDLaYEiS1VjrUWLBYHnea0pgmLxWlNa+HQhsXiwqGxNKeAxeLSjNoOvIfnV3VYf8ChAnDKs4dYlzfxBeDebeDRPvVy4y8S4kxAergLS+cTG8CoV7/5Tl2mhpQKTpXAXR1VsQxHHVUhRuggwaaoysSqg0W1wIgGenPc6muWcCDSdqiCgRFrumZv05a/TwjRVsBOfLk2swjPBnx9UVHAvljOAeCvm43KwAPjmnuUUYe6bdUaeNfqGbAx3/UvaspTBzwTAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='msedge.exe' title='SAM.gov | Search' /&gt;" SearchSteps="FuzzySelector, Image" />
+                  </uix:NExtractData.NextLink>
+                  <uix:NExtractData.Target>
+                    <uix:TargetAnchorable DesignTimeRectangle="577, 396, 859, 6874" FriendlyName="'Centralized Access'" FullSelectorArgument="&lt;webctrl tag='SDS-SEARCH-RESULT-LIST' /&gt;" Guid="0c47c09c-d206-487e-9b4e-9df624458992" InformativeScreenshot="12a03b93476abdb2f99482dde9e6fa59.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='SAM.gov | Search' /&gt;" SearchSteps="Selector" />
+                  </uix:NExtractData.Target>
+                </uix:NExtractData>
+                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="510,778" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                  <ui:ForEachRow.Body>
+                    <ActivityAction x:TypeArguments="sd:DataRow">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="rowContractURL" />
+                      </ActivityAction.Argument>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,657" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="434,371" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Timeout="10" Version="V1">
+                            <uix:NGoToUrl.Url>
+                              <InArgument x:TypeArguments="x:String">
+                                <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">rowContractURL["ContractURL"].ToString()</mca:CSharpValue>
+                              </InArgument>
+                            </uix:NGoToUrl.Url>
+                          </uix:NGoToUrl>
+                          <uix:NExtractData ContinueOnError="True" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='ContractDetail'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column0' attr='text'&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' /&gt;&lt;/column&gt;&lt;/extract&gt;" ExtractSimilar="True" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NExtractData_8" LimitExtractionTo="Rows" MaximumResults="1" ScopeIdentifier="71b1fec2-0be9-4aec-bec8-1295e3e0583f" Version="V1">
+                            <uix:NExtractData.DataTable>
+                              <InOutArgument x:TypeArguments="sd:DataTable">
+                                <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">ContractDetailsDataTable</mca:CSharpReference>
+                              </InOutArgument>
+                            </uix:NExtractData.DataTable>
+                            <uix:NExtractData.Target>
+                              <uix:TargetAnchorable BrowserURL="https://sam.gov/opp/d64b339f0a2c48e0a58978588e394607/view" DesignTimeRectangle="219, 236, 1163, 3571" FriendlyName="'Contract Opportunity'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;app&amp;gt;main&amp;gt;ng-component&amp;gt;page&amp;gt;div&amp;gt;div' parentid='main-container' tag='DIV' /&gt;" Guid="45aa8471-4a13-47bb-9946-1bf851f74037" InformativeScreenshot="bbe5e8039dcb4e4a372e6354fa5e8376.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='SAM.gov' /&gt;" SearchSteps="Selector" />
+                            </uix:NExtractData.Target>
+                          </uix:NExtractData>
+                        </Sequence>
+                        <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="False" Delimitator="Comma" DisplayName="Write CSV" FilePath="data\\FakeContractDetails.csv" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_2">
+                          <ui:WriteCsvFile.DataTable>
+                            <InArgument x:TypeArguments="sd:DataTable">
+                              <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">ContractDetailsDataTable</mca:CSharpValue>
+                            </InArgument>
+                          </ui:WriteCsvFile.DataTable>
+                        </ui:WriteCsvFile>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEachRow.Body>
+                  <ui:ForEachRow.DataTable>
+                    <InArgument x:TypeArguments="sd:DataTable">
+                      <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">ContractURLDataTable</mca:CSharpValue>
+                    </InArgument>
+                  </ui:ForEachRow.DataTable>
+                </ui:ForEachRow>
+              </Sequence>
+            </ActivityAction>
+          </uix:NApplicationCard.Body>
+          <uix:NApplicationCard.TargetApp>
+            <uix:TargetApp Area="-8, -8, 1616, 876" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI6SURBVDhPYwCBO1FJDA+Lq5iuWDo5XdK3nHfV1s3nqo2r3QUV/R9A/PiqpZPcFXNHx8uG1l1XrV1NnzS0Md6JTQHrBYMbHoEgzHNR3fDgeUWd/5dN7FKuWjnbnVfS/XFBWe8xkC17SccsBsj/f1HT5MDtiAS+25GJUN1AcMPVj+G6iy/fBVX9k3gNAMpdUDc8dys0Tuh2BKYBvCQYIDg4DeADhvjJC0BF10zskm/ZulleUTN4dkXd8NJNWzepKzpm0SA5rAbc8QxiuAt0wWU9y/l7jOwXlThHxrh4JMck2YRMiLMN7TJ3TwkucwqP2Wdot+KygdXye2FxgvdikKKxJqOGoS+rhsPWNbHJ2D/nkqR5xDshg6BfBj5Zv80C834LGwb9kjQPf2cakHPRyS2pbllOFXt/ZhVEc3BGIweDsAWDZ1K1iKJt7MWcusn/1Z0S/nNr+f4vaJz2v75/4X8+Hb//Kg7x/3Prp/xXsI05Yeibzcsg58yQUt7LxiBjEbFP3jq6T98zPdUttuK2V2L1f/vw4v+WQXn/XWPK/3vEV/63ArLtw4v+eyZU/Tf1y96n6ZLsB7SsVsYycjuDnFVUvbR5xDwgZ7OOe+pxm5CC6y4xZQ+8k6qf+ibXPvNNrnkGYrvFlj8EGnJL0yXpMFD9TinziHVAPJWhf+5ahlVbDjIGptWza7um8CvYxEgI6gfKy1hEqgJdpg7EaiC2gF6AgqRZuJSRd6YI0HU8RS0zWP7//w8Jh6EMGBgAVS46Q5ocKuwAAAAASUVORK5CYII=" InformativeScreenshot="e5c85ac9d6f85e443e20b5d1a80abd19.png" Selector="&lt;html app='msedge.exe' title='SAM.gov | Search'/&gt;" Url="https://sam.gov/search/?index=opp&amp;sort=-relevance&amp;page=1&amp;pageSize=25&amp;sfm%5Bstatus%5D%5Bis_active%5D=true&amp;sfm%5Bdates%5D%5BresponseDue%5D%5BresponseDueSelect%5D=next3Months&amp;sfm%5BserviceClassificationWrapper%5D%5Bnaics%5D%5B0%5D%5Bkey%5D=5415&amp;sfm%5BserviceClassificationWrapper%5D%5Bnaics%5D%5B0%5D%5Bvalue%5D=5415%20-%20Computer%20Systems%20Design%20and%20Related%20Services" />
+          </uix:NApplicationCard.TargetApp>
+        </uix:NApplicationCard>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info">
+          <ui:LogMessage.Message>
+            <InArgument x:TypeArguments="x:Object">
+              <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">"Contract details extraction completed successfully."</mca:CSharpValue>
+            </InArgument>
+          </ui:LogMessage.Message>
+        </ui:LogMessage>
+      </Sequence>
+      <FlowStep.Next>
+        <FlowStep x:Name="__ReferenceID2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">401,399</av:Point>
+              <av:Size x:Key="ShapeSize">200,51</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">501,450 501,500</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+            <ui:LogMessage.Message>
+              <InArgument x:TypeArguments="x:Object">
+                <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"Read CSV file with Contract Details."</mca:CSharpValue>
+              </InArgument>
+            </ui:LogMessage.Message>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <FlowStep.Next>
+            <FlowStep x:Name="__ReferenceID5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">401,500</av:Point>
+                  <av:Size x:Key="ShapeSize">200,93</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">501,593 501,643</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Read Contract Detail from CSV into DataTable" DisplayName="Contract Detail " sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Read_Contract_Detail.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <OutArgument x:TypeArguments="x:Int32" x:Key="out_currentRow" />
+                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_ContractDetail" />
+                  <OutArgument x:TypeArguments="x:Int32" x:Key="out_totalRows" />
+                </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InvokeWorkflowFile>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID0">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">401,643</av:Point>
+                      <av:Size x:Key="ShapeSize">200,93</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">501,736 501,786</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Get Next Contract Detail recursively" DisplayName="Get Next Contract Detail" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="GetNextContractDetail.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_currentRow">
+                        <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">transfer_currentRow</mca:CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_totalRows">
+                        <mca:CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">transfer_totalRows</mca:CSharpValue>
+                      </InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_ContractDetail">
+                        <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">transfer_ContractDetail</mca:CSharpReference>
+                      </OutArgument>
+                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_bool_hasContractDetail">
+                        <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">transfer_bool_hasContractDetail</mca:CSharpReference>
+                      </OutArgument>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_ContractReview">
+                        <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">transfer_dt_ContractDetail</mca:CSharpValue>
+                      </InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                  <FlowStep.Next>
+                    <FlowDecision x:Name="__ReferenceID6" sap2010:Annotation.AnnotationText="Is there a next Contract Detail record in the DataTable?" DisplayName="Next Contract Detail?" sap:VirtualizedContainerService.HintSize="158,144" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                      <FlowDecision.Condition>
+                        <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">transfer_bool_hasContractDetail</mca:CSharpValue>
+                      </FlowDecision.Condition>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <av:Point x:Key="ShapeLocation">422,786</av:Point>
+                          <av:Size x:Key="ShapeSize">158,144</av:Size>
+                          <av:PointCollection x:Key="TrueConnector">422,858 200,858 200,980</av:PointCollection>
+                          <av:PointCollection x:Key="FalseConnector">580,858 591,858 591,956 501,956 501,986</av:PointCollection>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <FlowDecision.True>
+                        <FlowStep x:Name="__ReferenceID4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">100,980</av:Point>
+                              <av:Size x:Key="ShapeSize">200,108</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">200,1088 200,1138</av:PointCollection>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Invoke the Named Entity Classifier out of the box ML package" DisplayName="Invoke the ML" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="NamedEntity_ContractDetail.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <OutArgument x:TypeArguments="x:Double" x:Key="out_confidence" />
+                              <OutArgument x:TypeArguments="x:String" x:Key="out_classification" />
+                              <InArgument x:TypeArguments="x:String" x:Key="in_ContractDetail" />
+                            </ui:InvokeWorkflowFile.Arguments>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:InvokeWorkflowFile>
+                          <FlowStep.Next>
+                            <FlowStep x:Name="__ReferenceID8">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">100,1138</av:Point>
+                                  <av:Size x:Key="ShapeSize">200,153</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">200,1291 200,1333.5</av:PointCollection>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send Email to corresponding internal Proposal Manager who is an expert with tasks related to the related Department&#xA;" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="200,153" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="DepartmentCSV.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_dept_name" />
+                                </ui:InvokeWorkflowFile.Arguments>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:InvokeWorkflowFile>
+                              <FlowStep.Next>
+                                <FlowStep x:Name="__ReferenceID7">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">100,1333.5</av:Point>
+                                      <av:Size x:Key="ShapeSize">200,93</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">100,1380 70,1380 70,689.5 401,689.5</av:PointCollection>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Move to the next Contract Detail Record" DisplayName="Move Next Record" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="SaveMoveToNext.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_classification" />
+                                      <InArgument x:TypeArguments="x:Double" x:Key="in_confidence" />
+                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="in_out_currentRow" />
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_contractDetail" />
+                                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_out_dt_ContractDetail" />
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:InvokeWorkflowFile>
+                                  <FlowStep.Next>
+                                    <x:Reference>__ReferenceID0</x:Reference>
+                                  </FlowStep.Next>
+                                </FlowStep>
+                              </FlowStep.Next>
+                            </FlowStep>
+                          </FlowStep.Next>
+                        </FlowStep>
+                      </FlowDecision.True>
+                      <FlowDecision.False>
+                        <FlowStep x:Name="__ReferenceID3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">401,986</av:Point>
+                              <av:Size x:Key="ShapeSize">200,108</av:Size>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence sap2010:Annotation.AnnotationText="No More records. End the process." DisplayName="End" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info">
+                              <ui:LogMessage.Message>
+                                <InArgument x:TypeArguments="x:Object">
+                                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">"Fetch and Send of prospective RFPs Completed Successfully."</mca:CSharpValue>
+                                </InArgument>
+                              </ui:LogMessage.Message>
+                            </ui:LogMessage>
+                          </Sequence>
+                        </FlowStep>
+                      </FlowDecision.False>
+                    </FlowDecision>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowStep.Next>
+    </FlowStep>
+    <FlowStep x:Name="__ReferenceID9">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">401,125</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">501,176 501,226</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+        <ui:LogMessage.Message>
+          <InArgument x:TypeArguments="x:Object">
+            <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">"Proposal Manager Run Started"</mca:CSharpValue>
+          </InArgument>
+        </ui:LogMessage.Message>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID1</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID7</x:Reference>
+    <x:Reference>__ReferenceID8</x:Reference>
+  </Flowchart>
+</Activity>
